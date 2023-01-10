@@ -1,5 +1,16 @@
-package org.example;public class Main {
+package org.example;
+
+
+public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Solution sol = new Solution();
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+
+        sol.bj1157(sc.next());
+
+
+
     }
+
+
 }

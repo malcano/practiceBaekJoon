@@ -1,23 +1,37 @@
 package org.example;
 
 import java.util.*;
-import java.io.*;
 
-public class Solution {
+class Solution {
     public void bj1157 (String input){
+        int max = -1;
+        char ch = ' ';
+
         Map<Character,Integer> alphabet = new java.util.HashMap<Character,Integer>();
         for(char i : input.toCharArray()){
-            if(!alphabet.containsKey(i)){
-                alphabet.put(i,1);
+            if(!alphabet.containsKey(Character.toUpperCase(i))){
+                alphabet.put(Character.toUpperCase(i),1);
                 continue;
             }
-            alphabet.put(i, alphabet.get(i));
+            alphabet.put(Character.toUpperCase(i), alphabet.get(Character.toUpperCase(i))+1);
+        }
+        for(Character key : alphabet.keySet()){
+            if(max<alphabet.get(key)){
+                max = alphabet.get(key);
+                ch = key;
+            }
+        }
+        boolean isSingle = true;
+        for(int i : alphabet.values()){
+            if(isSingle == false && i == max){
+                System.out.println("?");
+                return;
+            }
+            if(i==max)
+                isSingle = false;
 
         }
-
-
-
-
+        System.out.println(ch);
 
     }
 }
